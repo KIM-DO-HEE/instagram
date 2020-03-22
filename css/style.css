@@ -1,0 +1,136 @@
+body{
+    background : #fafafa;
+}
+#header{
+    width: 100%;
+    position: absolute;
+    /* 공중에 있어야되므로 absolute를 
+    씀 x축 y축하나 써줘야됨*/
+    left: 0;
+    top: 0;
+    z-index: 999;
+    background: white;
+    border-bottom: 1px solid rgba(0, 0, 0, 1);
+}
+
+#header .inner{
+    width: 975px;
+    height: 77px;
+    margin: 0 auto;
+    display: flex;
+    /* justify-content: center;  x축으로 가운데 정렬*/
+    justify-content: space-between; /* 사이사이 공간을 알맞게 주겠다*/
+    align-items: center; /* y축으로 가운데 정렬 */
+}
+
+#header .inner .logo > a{
+  color : transparent;
+}
+
+#header .inner .logo div{
+    vertical-align: middle;
+}
+
+#header .inner .logo div:nth-child(2){
+    transform: translateY(2px);
+}
+
+#header .inner .logo .icon_insta_logo{
+    position: relative;
+    margin-right: 30px;
+}
+
+#header .inner .logo .icon_insta_logo:after{ /* : : 가상 선택자 : 가상으로 선택해주겠다 
+    after : 그 후에  해주겠다*/
+    content: '';
+    width : 1px;
+    height: 28px;
+    background: #000;
+    position: absolute; /* 부모를 기준으로 위치를 잡는다, 부모의 기준을 잡는 조건 : 부모한테 position값이  relative, absoulte,fixed 중 하나라도 가져있어야한다 */ 
+    right : -15px;
+    top : -4px;
+}
+
+#header .search_box {
+    position: relative;
+}
+
+#search-field {
+    width: 185px;
+    height: 28px;
+    background : #fafafa;
+    border-radius: 3px;
+    padding: 3px 30px; /* 상하 3px 좌우 30px*/
+    color: #999;
+    font-weight: 400;
+    text-align: left;
+    font-size: 14px;
+    outline: none; /* outline : border 갖다댔을 때 파란색으로 변하는 것*/
+}
+
+#search-field::placeholder{ /* :: -> 속성 선택자*/
+     font-size: 0;
+}
+
+#search-field:focus::placeholder{
+    font-size: 14px;
+}
+#header .search_box .fake_field{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+}
+
+#search-field:focus ~ .fake_field > span:nth-child(1){
+    transform: translateX(-105px);
+
+}
+#search-field:focus ~ .fake_field > span:nth-child(2){
+    display: none;
+}
+
+#header .right_icons{
+    width: 132px;
+    display: flex;
+    justify-content: space-between ;
+}
+
+.icon_insta_logo {
+	background: url('../imgs/background01.png') no-repeat -53px -235px;
+	width: 22px;
+    height: 22px;
+    display: inline-block;
+}
+
+.icon_write_logo {
+	background: url('../imgs/background01.png') no-repeat -94px -72px;
+	width: 103px;
+	height: 29px;
+    display: inline-block;
+}
+
+.camera_icon {
+	background: url('../imgs/background01.png') no-repeat -271px -104px;
+	width: 24px;
+	height: 22px;
+}
+
+.heart_icon{
+	background: url('../imgs/background01.png') no-repeat -52px -261px;
+	width: 24px;
+	height: 22px;
+}
+
+.person_icon {
+	background: url('../imgs/background01.png') no-repeat -272px -182px;
+	width: 22px;
+	height: 24px;
+}
+
+.small_search_icon{
+	background: url('../imgs/background01.png') no-repeat -286px -286px;
+	width: 24px;
+	height: 24px;
+}
