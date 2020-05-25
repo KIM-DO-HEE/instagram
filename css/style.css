@@ -21,6 +21,10 @@ body{
     border-bottom: 1px solid rgba(0, 0, 0, 1);
 }
 
+#header.on{
+    position : fixed;
+}
+
 #header .inner{
     width: 975px;
     height: 77px;
@@ -29,6 +33,11 @@ body{
     /* justify-content: center;  x축으로 가운데 정렬*/
     justify-content: space-between; /* 사이사이 공간을 알맞게 주겠다*/
     align-items: center; /* y축으로 가운데 정렬 */
+    transition: all 1s;
+}
+
+#header.on .inner{
+    height : 52px;
 }
 
 #header .inner .logo > a{
@@ -57,6 +66,18 @@ body{
     position: absolute; /* 부모를 기준으로 위치를 잡는다, 부모의 기준을 잡는 조건 : 부모한테 position값이  relative, absoulte,fixed 중 하나라도 가져있어야한다 */ 
     right : -15px;
     top : -4px;
+}
+
+#header .inner .logo div{
+    vertical-align: middle;
+}
+
+#header .inner .logo div:nth-child(2){
+    transform : translateY(2px);
+    transition: all .5s;
+}
+#header.on .inner .logo .icon_insta_logo:after{
+    opacity: 0;
 }
 
 #header .search_box {
@@ -172,6 +193,11 @@ body{
 	width: 18px;
     height: 16px;
 }
+.heart_btn.on .sprite_heart_icon_outline{
+    background: url('../imgs/background01.png') no-repeat -26px -261px;
+	width: 24px;
+	height: 22px;
+}
 
 #main_container{
     padding-top: 130px;
@@ -191,7 +217,7 @@ body{
 }
 
 .contents{
-    width : 614px;
+    max-width : 614px;
     /* height: 500px; */
     border : 1px solid rgba(0,0,0,0.09);
     border-radius: 3px;
@@ -319,6 +345,11 @@ body{
     top: 0;
 }
 
+.side_box.on{
+    position: fixed;
+    top : 80px;
+}
+
 .side_box .profile_thumb{
     width : 50px;
     height : 50px;
@@ -393,4 +424,92 @@ body{
     height: 182px;
     overflow-x: hidden;
     overflow-y: auto;
+}
+
+.hidden_menu{
+    width : 600px;
+    height : 100px;
+    position : absolute;
+    left :50%;
+    transform: translateX(-50%);
+    top : 100px;
+    overflow: hidden;
+    border : 1px solid rgba(0,0,0,0.09);
+    border-radius : 3px;
+    display : none;
+}
+
+.hidden_menu .scroll_inner{
+    height : 100px;
+    width: auto;
+    overflow-x: auto;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.hidden_menu .scroll_inner .user{
+    width : 80px;
+    height: 80px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-right: 15px;
+}
+
+.hidden_menu .scroll_inner .user .id{
+    font-size: 12px;
+    color : #262626;
+}
+
+.hidden_menu .thumb_img{
+    width : 56px;
+    height : 56px;
+    border-radius : 50%;
+    overflow: hidden;
+}
+
+.hidden_menu .thumb_img img{
+    width : 100%;
+    height : 100%;
+}
+
+@media screen and (max-width : 1000px){
+    #header .inner{
+        width : 97.5%;
+    }
+
+    #main_container .inner{
+        width :93.5%;
+    }
+
+    .contents_box{
+        display : flex;
+        flex-direction : column;
+        align-items: center;
+
+    }
+
+    .side_box{
+        display : none;
+    }
+
+    #main_container{
+        padding-top : 220px;
+    }
+
+    #main_container .inner{
+        width : 93.5%;
+    }
+}
+
+@media screen and (max-width :650px){
+    #header .search_box{
+        display : none;
+    }
+
+    .hidden_menu{
+        display : block;
+    }
 }
